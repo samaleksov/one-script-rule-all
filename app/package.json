@@ -7,8 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "15.3.2",
+    "react": "^15.3.2",
     "react-native": "0.37.0",
+    "react-native-web": "0.0.50",
     "react-native-windows": "^0.37.1"
   },
   "jest": {
