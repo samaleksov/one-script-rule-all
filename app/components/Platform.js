@@ -15,7 +15,7 @@ export default class Platform extends Component {
   render() {
     return (
       <Text style={styles.platform}>
-				I can renderz everywhere...
+				I can render everywhere...
       </Text>
     );
   }
@@ -28,5 +28,3 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-
-AppRegistry.registerComponent('Platform', () => Platform);

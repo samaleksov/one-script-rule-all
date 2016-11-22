@@ -5,23 +5,20 @@
  */
 
 import React, { Component } from 'react';
+
+import Welcome from './components/Welcome';
+
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-import Platform from './Platform';
-
-export default class Welcome extends Component {
+class app extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-					Welcome, I'm a shared component...
-        </Text>
-        <Platform />
+        <Welcome />
       </View>
     );
   }
@@ -34,9 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
-  }
 });
+
+AppRegistry.registerComponent('app', () => app);
+AppRegistry.runApplication('app', { rootTag: document.getElementById('react-root') });
