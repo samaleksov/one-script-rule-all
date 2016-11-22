@@ -5,9 +5,6 @@
  */
 
 import React, { Component } from 'react';
-
-import Welcome from './components/Welcome';
-
 import {
   AppRegistry,
   StyleSheet,
@@ -15,11 +12,16 @@ import {
   View
 } from 'react-native';
 
-export default class app extends Component {
+import Platform from './Platform';
+
+export default class Welcome extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Welcome /> 
+        <Text style={styles.welcome}>
+					Welcome, I'm a shared component.
+        </Text>
+        <Platform />
       </View>
     );
   }
@@ -32,6 +34,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  }
 });
 
-AppRegistry.registerComponent('app', () => app);
+AppRegistry.registerComponent('Welcome', () => Welcome);
