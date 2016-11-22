@@ -15,7 +15,7 @@ export default class Platform extends Component {
   render() {
     return (
       <Text style={styles.platform}>
-				I can render very well on Windows...
+				I can render very well on Windows
       </Text>
     );
   }

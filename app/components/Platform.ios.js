@@ -15,7 +15,7 @@ export default class Platform extends Component {
   render() {
     return (
       <Text style={styles.platform}>
-				I can renderz very well on iOS...
+				I can render very well on iOS
       </Text>
     );
   }
