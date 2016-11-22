@@ -15,7 +15,7 @@ export default class Platform extends Component {
   render() {
     return (
       <Text style={styles.platform}>
-				I can render very well on Windows...
+				I can renderz very well on iOS...
       </Text>
     );
   }
@@ -23,7 +23,7 @@ export default class Platform extends Component {
 
 const styles = StyleSheet.create({
   platform: {
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     margin: 10,
   }
