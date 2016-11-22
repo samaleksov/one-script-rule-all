@@ -11,15 +11,14 @@ import Welcome from './components/Welcome';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-export default class app extends Component {
+class app extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Welcome /> 
+        <Welcome />
       </View>
     );
   }
@@ -35,3 +34,4 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('app', () => app);
+AppRegistry.runApplication('app', { rootTag: document.getElementById('react-root') });
