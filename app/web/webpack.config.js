@@ -8,12 +8,6 @@ module.exports = {
   entry: [
     path.join(__dirname, '../index.web.js')
   ],
-	resolveLoader: {
-		fallback: [
-      path.resolve(__dirname, '../lib/loaders'),
-      path.join(process.cwd(), 'node_modules')
-    ]
-  },
   module: {
     loaders: [
       {
@@ -29,6 +23,7 @@ module.exports = {
     ]
   },
   output: {
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   plugins: [

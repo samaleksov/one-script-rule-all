@@ -5,8 +5,15 @@
  */
 
 import React, { Component } from 'react';
+import { Router } from 'react-router';
 
 import Welcome from './components/Welcome';
+
+import { configureStoreAndHistory } from './lib/configureStore';
+
+import { Provider } from 'react-redux';
+
+import routes from "./routing/routes";
 
 import {
   AppRegistry,
@@ -14,12 +21,14 @@ import {
   View
 } from 'react-native';
 
+const { store, history } = configureStoreAndHistory();
+
 class app extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Welcome />
-      </View>
+      <Provider store={store}>
+        <Router history={history} routes={routes} />
+      </Provider>
     );
   }
 }
