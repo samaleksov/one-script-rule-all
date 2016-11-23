@@ -18,7 +18,7 @@ class App extends React.Component {
 
     return (
 			<View style={styles.container}>
-				<Text>Main app containerrrrrrr</Text>
+				<Text>Main app container</Text>
         {this.props.children}
 			</View>
     )

@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createLocation } from 'history';
-import { RouterContext, match } from 'react-router';
+import { RouterContext, Router, match } from 'react-router';
 import routes from '../routing/routes';
 import { configureStoreAndHistory } from '../lib/configureStore';
 import createHistory from 'react-router/lib/createMemoryHistory';
@@ -20,6 +20,8 @@ const config = require('./webpack.config');
 const compiler = webpack(config);
 /*
 <Router history={history} routes={routes} />
+
+      <RouterContext {...renderProps} />
 */
 
 const app = express();
@@ -36,7 +38,7 @@ app.use((req, res, next) => {
 		const memoryHistory = createHistory(req.originalUrl);
 		const { store, history } = configureStoreAndHistory(memoryHistory);
     const markup = renderToString(<Provider store={store}>
-					<RouterContext {...renderProps} />
+          <Router history={memoryHistory} routes={routes} />
 			</Provider>);
 
     const html = [

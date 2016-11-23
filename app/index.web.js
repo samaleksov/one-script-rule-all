@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Router } from 'react-router';
 
 import Welcome from './components/Welcome';
@@ -23,7 +24,7 @@ import {
 
 const { store, history } = configureStoreAndHistory();
 
-class app extends Component {
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -42,5 +43,11 @@ const styles = StyleSheet.create({
   },
 });
 
+ReactDOM.render(
+  <App />,
+  document.getElementById('react-root')
+);
+/*
 AppRegistry.registerComponent('app', () => app);
 AppRegistry.runApplication('app', { rootTag: document.getElementById('react-root') });
+*/

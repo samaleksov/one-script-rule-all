@@ -6,11 +6,13 @@
 
 import React, { Component } from 'react';
 
-import Welcome from './components/Welcome';
-
 import { Provider } from 'react-redux';
 
 import { configureStoreAndHistory } from './lib/configureStore';
+
+import Welcome from './components/Welcome';
+import Main from './components/Main';
+import App from './containers/App';
 
 import {
   Header,
@@ -38,7 +40,11 @@ export default class app extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router style={styles.container} history={history} routes={routes} addressBar>
+        <Router style={styles.container} history={history} addressBar>
+          <StackRoute path="app" component={App}>
+            <Route path="/" component={Welcome} />
+            <Route path="/main" component={Main} />
+          </StackRoute>
         </Router>
       </Provider>
     );
@@ -53,5 +59,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
 });
+
 
 AppRegistry.registerComponent('app', () => app);

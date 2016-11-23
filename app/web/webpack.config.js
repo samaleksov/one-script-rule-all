@@ -6,7 +6,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist')
   },
   entry: [
-    path.join(__dirname, '../index.web.js')
+    path.join(__dirname, '../index.web.js'), 'webpack-hot-middleware/client'
   ],
   module: {
     loaders: [
@@ -38,6 +38,7 @@ module.exports = {
 				} catch (e) { }
 			}
 		}),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),

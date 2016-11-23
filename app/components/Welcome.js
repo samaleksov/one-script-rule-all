@@ -19,7 +19,7 @@ export default class Welcome extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-					Welcome, I'm a shared component...
+					Welcome, I'm a shared component :P
         </Text>
         <Platform />
       </View>
