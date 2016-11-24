@@ -19,7 +19,7 @@ class Platform extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={this.props.style}>
         <Text style={styles.platform}>
   				I can render very well on the web
         </Text>

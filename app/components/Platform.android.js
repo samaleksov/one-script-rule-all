@@ -20,7 +20,7 @@ class Platform extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.platform}>
+        <Text  style={styles.platform}>
   				I can render very well on android
         </Text>
 

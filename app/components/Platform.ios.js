@@ -11,7 +11,7 @@ import {
 class Platform extends Component {
   render() {
     return (
-      <Text style={styles.platform}>
+      <Text style={this.props.style} style={styles.platform}>
 				I can render very well on iOS
       </Text>
     );
