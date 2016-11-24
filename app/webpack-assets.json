@@ -1,9 +1,0 @@
-{
-  "javascript": {
-    "main": "bundle.js"
-  },
-  "styles": {},
-  "assets": {
-    "./assets/tech_talks_logo.png": "b0d09aa35f978bcf87b1fc8be95db737.png"
-  }
-}
