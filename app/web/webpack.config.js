@@ -6,7 +6,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist')
   },
   entry: [
-    path.join(__dirname, '../index.web.js'), 'webpack-hot-middleware/client'
+    "react-hot-loader/patch", path.join(__dirname, '../index.web.js'), 'webpack-hot-middleware/client'
   ],
   module: {
     loaders: [
@@ -49,5 +49,6 @@ module.exports = {
     alias: {
       'react-native': 'react-native-web'
     }
-  }
+  },
+  devtool: "source-map"
 };

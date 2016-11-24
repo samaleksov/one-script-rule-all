@@ -16,6 +16,13 @@ export function configureStoreAndHistory (otherHistory) {
 	  applyMiddleware(middleware)
 	);
 
+	if (module.hot) {
+		  module.hot.accept('../reducers', () => {
+		    const nextRootReducer = require('../reducers');
+		    store.replaceReducer(nextRootReducer);
+			});
+	}
+
 	const enhancedHistory = syncHistoryWithStore(finalHistory, store);
 
 	return { store, history: enhancedHistory };

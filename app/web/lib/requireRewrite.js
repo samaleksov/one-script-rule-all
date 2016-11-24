@@ -43,7 +43,6 @@ exports.default = function (_ref2, a, b) {
         var result = replace(source, file, opts);
 
         if (result !== source) {
-						console.log("REPLACED ", result);
             return result;
         } else {
             return;

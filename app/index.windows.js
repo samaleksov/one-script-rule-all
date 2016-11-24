@@ -72,7 +72,11 @@ class app extends Component {
 
     return (
       <Provider store={store}>
-        <Router style={styles.container} history={history} routes={routes} addressBar>
+        <Router style={styles.container} history={history} addressBar>
+          <StackRoute path="app" component={App}>
+            <Route path="/" component={Welcome} />
+            <Route path="/main" component={Main} />
+          </StackRoute>
         </Router>
       </Provider>
     );

@@ -7,6 +7,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import { Provider } from 'react-redux';
 
+import ReactNative, { AppRegistry } from 'react-native'
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createLocation } from 'history';
@@ -35,14 +36,24 @@ app.use((req, res, next) => {
     if (error) return next(error.message);
     if (renderProps == null) return next(error);
 
+
 		const memoryHistory = createHistory(req.originalUrl);
 		const { store, history } = configureStoreAndHistory(memoryHistory);
-    const markup = renderToString(<Provider store={store}>
-          <Router history={memoryHistory} routes={routes} />
-			</Provider>);
+		const refreshedRoutes = require('../routing/routes').default;
+	
+		const App = (props) => { return (<Provider store={store}>
+          <Router history={memoryHistory} routes={refreshedRoutes} />
+			</Provider>) };
 
+		AppRegistry.registerComponent('App', () => App)
+
+		const { element, stylesheet } = AppRegistry.getApplication('App', { ...renderProps });
+
+    const markup = renderToString(element);
+		const style = stylesheet.props.dangerouslySetInnerHTML.__html;
     const html = [
       `<!DOCTYPE html>
+			<style id="__react-native-style">${style}</style>
 			<meta charset="utf-8">
 			<title>Presenter</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1">

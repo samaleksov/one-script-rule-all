@@ -1,53 +1,18 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Router } from 'react-router';
-
-import Welcome from './components/Welcome';
-
-import { configureStoreAndHistory } from './lib/configureStore';
-
-import { Provider } from 'react-redux';
-
-import routes from "./routing/routes";
-
 import {
   AppRegistry,
-  StyleSheet,
-  View
 } from 'react-native';
 
-const { store, history } = configureStoreAndHistory();
+import App from "./containers/Root";
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router history={history} routes={routes} />
-      </Provider>
-    );
-  }
+AppRegistry.registerComponent('App', () => App);
+AppRegistry.runApplication('App', { rootTag: document.getElementById('react-root') });
+
+if (module.hot) {
+  module.hot.accept('./containers/Root', () => {
+    const App = require('./containers/Root').default;
+
+    AppRegistry.registerComponent('App', () => App);
+    AppRegistry.runApplication('App', { rootTag: document.getElementById('react-root') });
+
+  });
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('react-root')
-);
-/*
-AppRegistry.registerComponent('app', () => app);
-AppRegistry.runApplication('app', { rootTag: document.getElementById('react-root') });
-*/
