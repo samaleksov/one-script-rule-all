@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -28,7 +22,7 @@ class Platform extends Component {
         <Text style={styles.platform}>
   				I can render very well on windows
         </Text>
-        <Button onPress={this.goToMain} title="Go to main" color="#841584" accessibilityLabel="Learn more about this purple button" />
+        <Button onPress={this.goToMain} title="Go to main" accessibilityLabel="Learn more about this purple button" />
       </View>
     );
   }

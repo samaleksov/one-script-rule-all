@@ -35,44 +35,9 @@ const { store, history } = configureStoreAndHistory();
 
 class app extends Component {
   render() {
-
-
-    const HomeHeader = withRouter((props) => {
-      const handleRightButtonPress = () => {
-        props.router.push('/detail/gray');
-      };
-
-      return (
-        <Header
-          {...props}
-          style={{ backgroundColor: '#26BBE5' }}
-          title="Welcome"
-          rightButtonText="Gray"
-          onRightButtonPress={handleRightButtonPress}
-        />
-      );
-    });
-
-
-    const Home2Header = withRouter((props) => {
-      const handleRightButtonPress = () => {
-        props.router.push('/detail/gray');
-      };
-
-      return (
-        <Header
-          {...props}
-          style={{ backgroundColor: '#26BBE5' }}
-          title="Main"
-          rightButtonText="Gray"
-          onRightButtonPress={handleRightButtonPress}
-        />
-      );
-    });
-
     return (
       <Provider store={store}>
-        <Router style={styles.container} history={history} addressBar>
+        <Router history={history} addressBar>
           <StackRoute path="app" component={App}>
             <Route path="/" component={Welcome} />
             <Route path="/main" component={Main} />
@@ -83,13 +48,5 @@ class app extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
 
 AppRegistry.registerComponent('app', () => app);

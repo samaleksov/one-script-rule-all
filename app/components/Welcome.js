@@ -1,10 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -14,12 +11,12 @@ import {
 
 import Platform from './Platform';
 
-export default class Welcome extends Component {
+class Welcome extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-					Welcome, I'm a shared component :P
+					Welcome, I'm a shared component
         </Text>
         <Platform />
       </View>
@@ -32,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   welcome: {
     fontSize: 40,
@@ -40,3 +37,5 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
+
+export default connect()(Welcome);

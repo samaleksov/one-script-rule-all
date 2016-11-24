@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+
+import { connect } from 'react-redux';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -10,7 +13,7 @@ class Main  extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.mainText}>Main Page</Text>
+        <Text style={styles.mainText}>Main Page noice</Text>
       </View>
     );
   }
@@ -24,10 +27,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   mainText: {
-    fontSize: 120,
+    fontSize: 20,
     textAlign: 'center',
     margin: 10,
   }
 });
 
-export default Main;
+export default connect()(Main);
