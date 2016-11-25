@@ -11,6 +11,8 @@ import App from '../containers/App';
 import Slides from '../components/Slides';
 import SlidesMain from '../components/SlidesMain';
 import SlidesSecondary from '../components/SlidesSecondary';
+import SlidesSam from '../components/SlidesSam';
+
 
 export default function () {
     return (
@@ -20,6 +22,7 @@ export default function () {
           <Route path="/slides" component={Slides}>
             <Route path="/slides/main" component={SlidesMain} />
             <Route path="/slides/secondary" component={SlidesSecondary} />
+            <Route path="/slides/sam" component={SlidesSam} />
           </Route>
         </StackRoute>)
 }

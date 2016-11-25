@@ -4,6 +4,7 @@ import Welcome from '../components/Welcome';
 import Slides from '../components/Slides';
 import SlidesMain from '../components/SlidesMain';
 import SlidesSecondary from '../components/SlidesSecondary';
+import SlidesSam from '../components/SlidesSam';
 
 export default {
   component: App,
@@ -27,6 +28,10 @@ export default {
         {
           path: '/slides/secondary',
           component: SlidesSecondary,
+        },
+        {
+          path: '/slides/sam',
+          component: SlidesSam,
         }
       ]
     }
