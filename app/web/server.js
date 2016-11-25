@@ -12,18 +12,13 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createLocation } from 'history';
 import { RouterContext, Router, match } from 'react-router';
-import routes from '../routing/routes';
+import routes from '../routing/routes.js';
 import { configureStoreAndHistory } from '../lib/configureStore';
 import createHistory from 'react-router/lib/createMemoryHistory';
 
 const config = require('./webpack.config');
 
 const compiler = webpack(config);
-/*
-<Router history={history} routes={routes} />
-
-      <RouterContext {...renderProps} />
-*/
 
 const app = express();
 
@@ -40,7 +35,7 @@ app.use((req, res, next) => {
 		const memoryHistory = createHistory(req.originalUrl);
 		const { store, history } = configureStoreAndHistory(memoryHistory);
 		const refreshedRoutes = require('../routing/routes').default;
-	
+
 		const App = (props) => { return (<Provider store={store}>
           <Router history={memoryHistory} routes={refreshedRoutes} />
 			</Provider>) };
@@ -75,4 +70,12 @@ app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static(path.join(__dirname, 'public')));
 const server = createServer(app);
+var io = require('socket.io')(server);
+
+io.sockets.on('connection', function (socket) {
+  socket.on('navigate', function (data) {
+    socket.broadcast.emit('navigate', data);
+  });
+});
+
 server.listen(3001);

@@ -9,11 +9,14 @@ import {
   View
 } from 'react-native';
 
-class Main  extends Component {
+import Image from "../lib/Image";
+const image = require('../assets/thering2.jpg');
+
+class SlidesSecondary  extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Main</Text>
+        <Image style={styles.image} source={image} />
       </View>
     );
   }
@@ -26,11 +29,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  mainText: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  image: {
+    flexGrow: 1
   }
 });
 
-export default connect()(Main);
+export default connect()(SlidesSecondary);

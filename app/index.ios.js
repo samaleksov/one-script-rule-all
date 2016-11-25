@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-
-import Welcome from './components/Welcome';
-import App from './containers/App';
-import Main from './components/Main';
-
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  AppRegistry
 } from 'react-native';
+import "./userAgent";
+import routes from "./routing/routes";
+
 
 import {
-  Header,
-  Link,
-  Route,
-  Router,
-  StackRoute,
-  withRouter
+  Router
 } from 'react-router-native';
 
 import { Provider } from 'react-redux';
@@ -25,34 +15,17 @@ import { Provider } from 'react-redux';
 import { configureStoreAndHistory } from './lib/configureStore';
 
 const { store, history } = configureStoreAndHistory();
+const renderedRoutes = routes();
 
 export default class app extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <StackRoute path="app" component={App}>
-            <Route path="/" component={Welcome} />
-            <Route path="/main" component={Main} />
-          </StackRoute>
+            { renderedRoutes }
         </Router>
       </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
 AppRegistry.registerComponent('app', () => app);

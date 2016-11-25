@@ -13,7 +13,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query: {
+          presets: ["react-native"]
+        }
       },
       {
         test: /\.(gif|jpe?g|png|svg)$/,

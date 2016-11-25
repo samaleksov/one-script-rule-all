@@ -19,6 +19,8 @@
     "react-router-native": "^2.0.0-beta.0",
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
+    "socket.io": "^1.6.0",
+    "socket.io-client": "^1.6.0",
     "webpack-isomorphic-tools": "^2.6.4"
   },
   "jest": {

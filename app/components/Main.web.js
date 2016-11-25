@@ -9,7 +9,6 @@ class Main  extends React.Component {
 
     return (
       <View style={styles.container}>
-        <h1 style={ textStyle }>Main Page</h1>
       </View>
     );
   }

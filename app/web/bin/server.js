@@ -9,13 +9,16 @@ var rootDir = path.resolve(__dirname, '..');
 
 try {
   config = JSON.parse(babelrc);
+  config.presets = config.presets || [];
+  config.presets.push("react-native");
+
   config.plugins = config.plugins || [];
   config.plugins.push([ path.join(rootDir, "./lib/requireRewrite"), { "replaceFunc": "./web/lib/replaceModule.js" }]);
   config.plugins.push([ "babel-plugin-webpack-alias", { "config": "./web/webpack.config.js" } ]);
   config.plugins.push(["transform-assets", {
                 "extensions": ["gif", "jpeg", "svg", "png", "jpg"],
                 "name": "[name].[hash:16].[ext]",
-                "limit": 10000
+                "limit": 0
               }]);
 
 } catch (err) {

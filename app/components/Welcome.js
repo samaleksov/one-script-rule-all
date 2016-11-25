@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-
+import { push } from 'react-router-redux';
 import {
   AppRegistry,
   StyleSheet,
+  TouchableHighlight,
   Text,
   View,
   ScrollView
@@ -12,88 +13,34 @@ import {
 
 import Platform from './Platform';
 
+import { slides, colors, titles } from "../constants";
+
 class Welcome extends Component {
+  goToPage = (page) => {
+    return () => {
+      this.props.dispatch(push(page));
+    }
+  }
   render() {
     return (
-      <ScrollView>
+      <ScrollView style={styles.scroll}>
         <View style={styles.container}>
-          <View style={styles.tile}>
-            <Text style={styles.welcome}>
-              Slide 1
-            </Text>
-          </View>
-          <View style={styles.tile2}>
-            <Text style={styles.welcome}>
-    					Slide 2
-            </Text>
-          </View>
-          <View style={styles.tile3}>
-            <Text style={styles.welcome}>
-    					Slide 3
-            </Text>
-          </View>
-          <View style={styles.tile4}>
-            <Text style={styles.welcome}>
-              Slide 4
-            </Text>
-          </View>
-          <View style={styles.tile5}>
-            <Text style={styles.welcome}>
-              Slide 5
-            </Text>
-          </View>
-          <View style={styles.tile6}>
-            <Text style={styles.welcome}>
-              Slide 6
-            </Text>
-          </View>
-          <View style={styles.tile7}>
-            <Text style={styles.welcome}>
-              Slide 7
-            </Text>
-          </View>
-          <View style={styles.tile8}>
-            <Text style={styles.welcome}>
-              Slide 8
-            </Text>
-          </View>
-          <View style={styles.tile9}>
-            <Text style={styles.welcome}>
-              Slide 9
-            </Text>
-          </View>
-          <View style={styles.tile10}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <View style={styles.tile11}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <View style={styles.tile12}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <View style={styles.tile13}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <View style={styles.tile14}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <View style={styles.tile15}>
-            <Text style={styles.welcome}>
-              Slide 10
-            </Text>
-          </View>
-          <Platform style={styles.platform}/>
+          {
+            slides.map((slide, index) => {
+              return (
+                <View key={slide}  style={StyleSheet.flatten([styles.tile, {backgroundColor: colors[index]}])}>
+                  <TouchableHighlight  onPress={ this.goToPage(slide) }>
+                    <View style={styles.textContainer}>
+                      <Text style={styles.tileTitle}>{titles[index]}</Text>
+                    </View>
+                  </TouchableHighlight>
+                </View>
+              );
+            })
+          }
         </View>
+
+        <Platform style={styles.platform}/>
       </ScrollView>
     );
   }
@@ -104,143 +51,42 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
-    backgroundColor: 'white',
+    backgroundColor: 'white'
+  },
+  scroll: {
+    flex: 1,
+    backgroundColor: "brown"
+  },
+  textContainer: {
+    flexGrow:1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    backgroundColor: 'transparent',
+    minHeight: 128,
+    minWidth: 128
   },
   tile: {
+    flex: 1,
     flexGrow: 1,
+    minHeight: 128,
+    minWidth: 128,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#3a8cbe',
-    width: 150,
-    height: 150
-  },
-  tile2: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#8c8c8c',
-    width: 150,
-    height: 150
-  },
-  tile3: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffae0d',
-    width: 150,
-    height: 150
-  },
-  tile4: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#5896ed',
-    width: 150,
-    height: 150
-  },
-  tile5: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f283e2',
-    width: 150,
-    height: 150
-  },
-  tile6: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f4413d',
-    width: 150,
-    height: 150
-  },
-  tile7: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#d1e224',
-    width: 150,
-    height: 150
-  },
-  tile8: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#a99b78',
-    width: 150,
-    height: 150
-  },
-  tile9: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#e4e4e4',
-    width: 150,
-    height: 150
-  },
-  tile10: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2a9470',
-    width: 150,
-    height: 150
-  },
-  tile11: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffd835',
-    width: 150,
-    height: 150
-  },
-  tile12: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#4cbce2',
-    width: 150,
-    height: 150
-  },
-  tile13: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#40ae4d',
-    width: 150,
-    height: 150
-  },
-  tile14: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f84f28',
-    width: 150,
-    height: 150
-  },
-  tile15: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9fc613',
-    width: 150,
-    height: 150
   },
   platform: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#636363',
-    width: 300,
-    height: 150
+    backgroundColor: colors[0],
+    width: 128,
+    height: 128
   },
-  welcome: {
-
+  tileTitle: {
     fontSize: 20,
     color: "white",
     textAlign: 'center',
     margin: 10,
   }
 });
-
+styles.touchableBanner = Platform.OS === "web" ? { flexGrow:1, outline: "none" } : {flexGrow:1};
 export default connect()(Welcome);

@@ -3,9 +3,6 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { push, pop } from 'react-router-redux';
 
-import { slides, WSURL } from "../constants";
-import io from 'socket.io-client/socket.io';
-
 import {
   AppRegistry,
   StyleSheet,
@@ -23,18 +20,9 @@ class App extends React.Component {
   goHome = () => {
     this.props.dispatch(push('/'));
   }
-  goToSlide = (name) => {
-    return () => {
-      this.props.dispatch(push(name));
-    }
-  }
-  componentWillMount = () => {
-    this.socket = io(WSURL, {
-      jsonp: false, transports: ['websocket']});
-    this.socket.on('navigate', (data) => { this.goToSlide(data)() });
+  componentDidMount = () => {
   }
   componentWillUnmount = () => {
-    this.socket.removeAllListeners("navigate");
   }
   render () {
 
