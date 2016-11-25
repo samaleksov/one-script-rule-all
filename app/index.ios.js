@@ -1,12 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 
 import Welcome from './components/Welcome';
+import App from './containers/App';
+import Main from './components/Main';
 
 import {
   AppRegistry,
@@ -15,16 +11,32 @@ import {
   View
 } from 'react-native';
 
+import {
+  Header,
+  Link,
+  Route,
+  Router,
+  StackRoute,
+  withRouter
+} from 'react-router-native';
+
+import { Provider } from 'react-redux';
+
+import { configureStoreAndHistory } from './lib/configureStore';
+
+const { store, history } = configureStoreAndHistory();
+
 export default class app extends Component {
   render() {
     return (
-      <View style={styles.container}>
-	<Welcome />
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Provider store={store}>
+        <Router history={history} addressBar>
+          <StackRoute path="app" component={App}>
+            <Route path="/" component={Welcome} />
+            <Route path="/main" component={Main} />
+          </StackRoute>
+        </Router>
+      </Provider>
     );
   }
 }

@@ -29,8 +29,6 @@ import {
   View
 } from 'react-native';
 
-import routes from "./routing/routes";
-
 const { store, history } = configureStoreAndHistory();
 
 class app extends Component {
