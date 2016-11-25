@@ -1,0 +1,113 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-windows@^0.38.0",
+        "scope": null,
+        "escapedName": "react-native-windows",
+        "name": "react-native-windows",
+        "rawSpec": "^0.38.0",
+        "spec": ">=0.38.0 <0.39.0",
+        "type": "range"
+      },
+      "D:\\Develop\\one-script-rule-all\\app"
+    ]
+  ],
+  "_from": "react-native-windows@>=0.38.0 <0.39.0",
+  "_id": "react-native-windows@0.38.0",
+  "_inCache": true,
+  "_location": "/react-native-windows",
+  "_nodeVersion": "6.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-windows-0.38.0.tgz_1479921029931_0.0826561888679862"
+  },
+  "_npmUser": {
+    "name": "rozele",
+    "email": "erozell@outlook.com"
+  },
+  "_npmVersion": "3.10.6",
+  "_phantomChildren": {
+    "glob": "7.1.1",
+    "rechoir": "0.6.2"
+  },
+  "_requested": {
+    "raw": "react-native-windows@^0.38.0",
+    "scope": null,
+    "escapedName": "react-native-windows",
+    "name": "react-native-windows",
+    "rawSpec": "^0.38.0",
+    "spec": ">=0.38.0 <0.39.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-windows/-/react-native-windows-0.38.0.tgz",
+  "_shasum": "5227f3eae036017e9fb0b029eab233ff2c3252e4",
+  "_shrinkwrap": null,
+  "_spec": "react-native-windows@^0.38.0",
+  "_where": "D:\\Develop\\one-script-rule-all\\app",
+  "bugs": {
+    "url": "https://github.com/ReactWindows/react-native-windows/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "glob": "^7.0.3",
+    "shelljs": "^0.7.0",
+    "uuid": "^2.0.1",
+    "xml-parser": "^1.2.1",
+    "yeoman-environment": "^1.5.3",
+    "yeoman-generator": "^0.21.2"
+  },
+  "description": "React Native platform extensions for the Universal Windows Platform.",
+  "devDependencies": {
+    "react": "~15.4.0-rc.4",
+    "react-native": "~0.38.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "5227f3eae036017e9fb0b029eab233ff2c3252e4",
+    "tarball": "https://registry.npmjs.org/react-native-windows/-/react-native-windows-0.38.0.tgz"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=4"
+  },
+  "files": [
+    "Libraries",
+    "ReactWindows/ReactNative",
+    "ReactWindows/ReactNative.Shared",
+    "ReactWindows/ChakraBridge",
+    "local-cli",
+    "README.md"
+  ],
+  "gitHead": "9a79bc75b2f595c15b26de9e0a4cd98e311b74f1",
+  "homepage": "https://github.com/ReactWindows/react-native-windows#readme",
+  "license": "MIT",
+  "main": "Libraries/react-native-windows/react-native-windows.js",
+  "maintainers": [
+    {
+      "name": "rozele",
+      "email": "erozell@outlook.com"
+    }
+  ],
+  "name": "react-native-windows",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": "~0.38.0",
+    "react": "~15.4.0-rc.4"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ReactWindows/react-native-windows.git"
+  },
+  "rnpm": {
+    "plugin": "./local-cli/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.38.0"
+}
