@@ -1,3 +1,8 @@
+Icon*
+.DS_Store
+app/ios/app/Images.xcassets/AppIcon.appiconset/Contents.json
+app/ios/app/Images.xcassets/Contents.json
+
 # Logs
 logs
 *.log
