@@ -271,11 +271,15 @@ namespace ReactNative.DevSupport
                         () =>
                         {
                             var dialog = new PackagerSettingsDialog(this._devSettings);
-                            
-                            Task.Delay(2000).ContinueWith(async (Task t) =>
-                            {
-                                await dialog.ShowAsync();
-                            }).Start();
+
+                            // The freakin thing can only run one dialog at a time
+                            Task.Factory.StartNew(async () => {
+                                await Task.Delay(2000);
+                                await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+                                {
+                                    await dialog.ShowAsync();
+                                });
+                            });
                         }),
                 };
 
