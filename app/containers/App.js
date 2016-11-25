@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: "grey"
   },
   logo: {
-    maxWidth: 279,
-    maxHeight: 74
+    maxWidth: 200,
+    maxHeight: 50
   }
 });
 styles.touchableBanner = Platform.OS === "web" ? { outline: "none" } : undefined;

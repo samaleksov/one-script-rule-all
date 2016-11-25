@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux';
-
 import {
+  View,
   AppRegistry,
   StyleSheet,
   Text
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
+import { push } from 'react-router-redux';
+
+import Button from '../lib/Button';
+
 class Platform extends Component {
+  goToMain = () => {
+    this.props.dispatch(push('/main'));
+  }
   render() {
     return (
-      <Text style={this.props.style} style={styles.platform}>
-				I can render very well on iOS
-      </Text>
+      <View>
+        <Text  style={styles.platform}>
+  				I can render very well on android
+        </Text>
+
+        <Button onPress={this.goToMain} title="Go to main" color="#841584" accessibilityLabel="Learn more about this purple button" />
+
+      </View>
     );
   }
 }

@@ -40,7 +40,7 @@ export default class app extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router style={styles.container} history={history} addressBar>
+        <Router style={styles.container} history={history}>
           <StackRoute path="app" component={App}>
             <Route path="/" component={Welcome} />
             <Route path="/main" component={Main} />

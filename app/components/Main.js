@@ -13,7 +13,6 @@ class Main  extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.mainText}>Main Page noice</Text>
       </View>
     );
   }

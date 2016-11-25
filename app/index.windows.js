@@ -35,7 +35,7 @@ class app extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router history={history} addressBar>
+        <Router history={history}>
           <StackRoute path="app" component={App}>
             <Route path="/" component={Welcome} />
             <Route path="/main" component={Main} />
