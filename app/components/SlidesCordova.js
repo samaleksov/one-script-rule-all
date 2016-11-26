@@ -6,21 +6,21 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Platform
 } from 'react-native';
 
 
 import Image from "../lib/Image";
-const image = require('../assets/sam.gif');
+const image = require('../assets/cordova.png');
 
-class SlidesSam  extends Component {
+class SlidesCordova  extends Component {
   render () {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={image} />
         </View>
-        <Text style={styles.text}>Sam</Text>
       </View>
     );
   }
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     left: 50,
     fontSize: 40,
     fontWeight: "bold",
-    color: "white"
+    color: Platform.OS === "windows" ? "black" : "white"
   }
 });
 
-export default connect()(SlidesSam);
+export default connect()(SlidesCordova);

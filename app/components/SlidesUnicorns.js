@@ -11,16 +11,15 @@ import {
 
 
 import Image from "../lib/Image";
-const image = require('../assets/sam.gif');
+const image = require('../assets/ninjacat_unicorn.png');
 
-class SlidesSam  extends Component {
+class SlidesUnicorns  extends Component {
   render () {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={image} />
         </View>
-        <Text style={styles.text}>Sam</Text>
       </View>
     );
   }
@@ -54,4 +53,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(SlidesSam);
+export default connect()(SlidesUnicorns);

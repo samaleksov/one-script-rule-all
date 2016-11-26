@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     maxHeight: 50
   }
 });
+
+console.log(styles.container);
 styles.touchableBanner = Platform.OS === "web" ? { outline: "none" } : undefined;
 
 App.propTypes = {

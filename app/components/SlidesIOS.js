@@ -6,21 +6,22 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Platform
 } from 'react-native';
 
 
 import Image from "../lib/Image";
-const image = require('../assets/sam.gif');
+const image = require('../assets/ios.png');
 
-class SlidesSam  extends Component {
+class SlidesIOS  extends Component {
   render () {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image style={styles.image} source={image} />
         </View>
-        <Text style={styles.text}>Sam</Text>
+        <Text style={styles.text}>NSVeryLongMethodNamesBecauseWeHaveNoOverloading</Text>
       </View>
     );
   }
@@ -31,13 +32,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   image: {
     flexGrow: 1
@@ -46,12 +47,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "black",
     padding: 10,
-    top: 150,
-    left: 50,
+    top: 20,
+    left: -100,
     fontSize: 40,
     fontWeight: "bold",
-    color: "white"
+    color: Platform.OS === "windows" ? "black" : "white"
   }
 });
 
-export default connect()(SlidesSam);
+export default connect()(SlidesIOS);

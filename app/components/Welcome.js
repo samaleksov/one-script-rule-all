@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
   Text,
   View,
+  ListView,
   ScrollView
 } from 'react-native';
 
@@ -22,64 +23,39 @@ class Welcome extends Component {
     }
   }
   render() {
-    return (
-      <ScrollView style={styles.scroll}>
-        <View style={styles.container}>
-          {
-            slides.map((slide, index) => {
-              return (
-                <View key={slide}  style={StyleSheet.flatten([styles.tile, {backgroundColor: colors[index]}])}>
-                  <TouchableHighlight  onPress={ this.goToPage(slide) }>
-                    <View style={styles.textContainer}>
-                      <Text style={styles.tileTitle}>{titles[index]}</Text>
-                    </View>
-                  </TouchableHighlight>
-                </View>
-              );
-            })
-          }
-        </View>
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const dataSource = ds.cloneWithRows(slides);
 
-        <Platform style={styles.platform}/>
-      </ScrollView>
+    return (
+      <ListView contentContainerStyle={styles.list}
+         dataSource={dataSource}
+          renderRow={(slide, s, index) => {
+              return (<View key={slide}  style={StyleSheet.flatten([{}, {backgroundColor: colors[index]}])}>
+                <TouchableHighlight  onPress={ this.goToPage(slide) }>
+                  <View>
+                    <Text style={styles.tileTitle}>{titles[index]}</Text>
+                  </View>
+                </TouchableHighlight>
+              </View>);
+            }
+          }
+        >
+      </ListView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    backgroundColor: 'white'
-  },
   scroll: {
-    flex: 1,
-    backgroundColor: "brown"
-  },
-  textContainer: {
-    flexGrow:1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    backgroundColor: 'transparent',
-    minHeight: 128,
-    minWidth: 128
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   },
   tile: {
-    flex: 1,
-    flexGrow: 1,
-    minHeight: 128,
-    minWidth: 128,
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: 100
   },
   platform: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors[0],
-    width: 128,
-    height: 128
+    width: 100
   },
   tileTitle: {
     fontSize: 20,
@@ -88,5 +64,5 @@ const styles = StyleSheet.create({
     margin: 10,
   }
 });
-styles.touchableBanner = Platform.OS === "web" ? { flexGrow:1, outline: "none" } : {flexGrow:1};
+styles.touchableBanner = Platform.OS === "web" ? { outline: "none" } : { };
 export default connect()(Welcome);
